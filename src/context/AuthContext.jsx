@@ -226,18 +226,6 @@ export const AuthProvider = ({ children }) => {
         return user.role === requiredRole || user.role === requiredRole.charAt(0).toUpperCase() + requiredRole.slice(1)
     }
 
-    const changePassword = async (currentPassword, newPassword) => {
-        debugInfo('AuthContext', 'Changing password')
-        try {
-            const res = await axios.post('/api/auth/change-password', { currentPassword, newPassword }, { withCredentials: true })
-            debugSuccess('AuthContext', 'Password changed successfully')
-            return res.data
-        } catch (err) {
-            debugError('AuthContext', 'Change password failed', err)
-            throw err
-        }
-    }
-
     const listSessions = async () => {
         try {
             const res = await axios.get('/api/auth/sessions', { withCredentials: true })
@@ -279,7 +267,6 @@ export const AuthProvider = ({ children }) => {
         hasRole,
         validateToken,
         handleTokenExpired,
-        changePassword,
         listSessions,
         revokeSession,
         revokeAllSessions,

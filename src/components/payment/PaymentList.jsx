@@ -56,7 +56,7 @@ const PaymentList = () => {
       PAID: 'bg-green-100 text-green-800',
       PENDING: 'bg-yellow-100 text-yellow-800',
       FAILED: 'bg-red-100 text-red-800',
-      REFUNDED: 'bg-purple-100 text-purple-800',
+      REFUNDED: 'bg-pink-100 text-pink-800',
     }
     return map[status] || 'bg-gray-100 text-gray-800'
   }
@@ -71,7 +71,7 @@ const PaymentList = () => {
           <button
             onClick={() => { setPage(0); fetchPayments() }}
             disabled={loading}
-            className="w-full sm:w-auto px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white rounded-lg font-semibold transition"
+            className="w-full sm:w-auto px-4 py-2 bg-rose-500 hover:bg-rose-600 disabled:opacity-50 text-white rounded-lg font-semibold transition"
           >
             {loading ? 'Loading...' : 'Refresh'}
           </button>
@@ -83,9 +83,9 @@ const PaymentList = () => {
 
         {stats && (
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
-            <div className="bg-white rounded-lg shadow p-4 border-l-4 border-blue-500">
+            <div className="bg-white rounded-lg shadow p-4 border-l-4 border-rose-500">
               <p className="text-xs text-gray-500 font-semibold uppercase">Total Online</p>
-              <p className="text-2xl font-bold text-blue-600">{totals?.count || 0}</p>
+              <p className="text-2xl font-bold text-rose-500">{totals?.count || 0}</p>
               <p className="text-sm text-gray-600">₹{totals?.totalAmount || 0}</p>
             </div>
             <div className="bg-white rounded-lg shadow p-4 border-l-4 border-green-500">
@@ -103,9 +103,9 @@ const PaymentList = () => {
               <p className="text-2xl font-bold text-red-600">{stats?.failed?.count || 0}</p>
               <p className="text-sm text-gray-600">₹{stats?.failed?.amount || 0}</p>
             </div>
-            <div className="bg-white rounded-lg shadow p-4 border-l-4 border-purple-500">
+            <div className="bg-white rounded-lg shadow p-4 border-l-4 border-pink-500">
               <p className="text-xs text-gray-500 font-semibold uppercase">Refunded</p>
-              <p className="text-2xl font-bold text-purple-600">{stats?.refunded?.count || 0}</p>
+              <p className="text-2xl font-bold text-pink-600">{stats?.refunded?.count || 0}</p>
               <p className="text-sm text-gray-600">₹{stats?.refunded?.amount || 0}</p>
             </div>
           </div>
@@ -118,7 +118,7 @@ const PaymentList = () => {
               onClick={() => { setStatusFilter(s); setPage(0) }}
               className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition ${
                 statusFilter === s
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-rose-500 text-white'
                   : 'bg-white text-gray-600 border border-gray-300 hover:bg-gray-50'
               }`}
             >
@@ -129,7 +129,7 @@ const PaymentList = () => {
 
         {loading && orders.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-12">
-            <div className="animate-spin border-4 border-blue-200 border-t-blue-600 rounded-full h-12 w-12 mb-4"></div>
+            <div className="animate-spin border-4 border-rose-200 border-t-rose-500 rounded-full h-12 w-12 mb-4"></div>
             <p className="text-gray-600">Loading payments...</p>
           </div>
         ) : orders.length === 0 ? (
@@ -155,7 +155,7 @@ const PaymentList = () => {
                   {orders.map((order) => (
                     <tr key={order._id} className="border-t hover:bg-gray-50">
                       <td className="px-4 py-3">
-                        <p className="font-semibold text-blue-600">{order.orderNumber || order.orderId}</p>
+                        <p className="font-semibold text-rose-500">{order.orderNumber || order.orderId}</p>
                       </td>
                       <td className="px-4 py-3 hidden md:table-cell">
                         <p className="font-medium text-gray-700">{order.shippingAddress?.fullName || 'N/A'}</p>

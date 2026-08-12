@@ -53,7 +53,7 @@ const RiderTracking = () => {
         <button
           onClick={fetchRiders}
           disabled={loading}
-          className="flex items-center gap-2 px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 transition disabled:opacity-50"
+          className="flex items-center gap-2 px-4 py-2 bg-pink-600 text-white rounded-lg text-sm font-medium hover:bg-pink-700 transition disabled:opacity-50"
         >
           <RefreshCw size={16} className={loading ? 'animate-spin' : ''} />
           Refresh
@@ -69,7 +69,7 @@ const RiderTracking = () => {
 
       {loading ? (
         <div className="flex justify-center py-12">
-          <Loader2 className="animate-spin text-indigo-600" size={32} />
+          <Loader2 className="animate-spin text-pink-600" size={32} />
         </div>
       ) : (
         <div className="space-y-6">
@@ -85,8 +85,8 @@ const RiderTracking = () => {
                   <div key={rider._id} className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 hover:shadow-md transition">
                     <div className="flex items-start justify-between mb-3">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center">
-                          <Bike size={20} className="text-indigo-600" />
+                        <div className="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center">
+                          <Bike size={20} className="text-pink-600" />
                         </div>
                         <div>
                           <p className="font-semibold text-gray-800">{rider.name}</p>
@@ -107,12 +107,12 @@ const RiderTracking = () => {
 
                     <div className="space-y-2 text-sm">
                       <div className="flex items-center gap-2 text-gray-600">
-                        <Navigation size={14} className="text-indigo-500 shrink-0" />
+                        <Navigation size={14} className="text-pink-500 shrink-0" />
                         <a
                           href={`https://www.google.com/maps?q=${rider.currentLat},${rider.currentLng}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-indigo-600 hover:underline truncate"
+                          className="text-pink-600 hover:underline truncate"
                         >
                           {rider.currentLat.toFixed(4)}, {rider.currentLng.toFixed(4)}
                         </a>
@@ -138,7 +138,7 @@ const RiderTracking = () => {
                       href={`https://www.google.com/maps/dir/?api=1&destination=${rider.currentLat},${rider.currentLng}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-3 flex items-center justify-center gap-1.5 w-full py-2 bg-indigo-50 text-indigo-700 rounded-lg text-xs font-medium hover:bg-indigo-100 transition"
+                      className="mt-3 flex items-center justify-center gap-1.5 w-full py-2 bg-pink-50 text-pink-700 rounded-lg text-xs font-medium hover:bg-pink-100 transition"
                     >
                       <MapPin size={14} />
                       View on Map

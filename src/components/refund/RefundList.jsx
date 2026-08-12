@@ -87,7 +87,7 @@ const RefundList = () => {
   const statusColor = (status) => {
     const map = {
       PENDING: 'bg-yellow-100 text-yellow-800',
-      APPROVED: 'bg-blue-100 text-blue-800',
+      APPROVED: 'bg-rose-100 text-rose-800',
       PROCESSED: 'bg-green-100 text-green-800',
       REJECTED: 'bg-red-100 text-red-800',
     }
@@ -102,7 +102,7 @@ const RefundList = () => {
           <button
             onClick={() => { fetchRefunds(); fetchStats() }}
             disabled={loading}
-            className="w-full sm:w-auto px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white rounded-lg font-semibold transition"
+            className="w-full sm:w-auto px-4 py-2 bg-rose-500 hover:bg-rose-600 disabled:opacity-50 text-white rounded-lg font-semibold transition"
           >
             {loading ? 'Loading...' : 'Refresh'}
           </button>
@@ -115,9 +115,9 @@ const RefundList = () => {
         {/* Stats */}
         {stats && (
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-            <div className="bg-white rounded-lg shadow p-4 border-l-4 border-blue-500">
+            <div className="bg-white rounded-lg shadow p-4 border-l-4 border-rose-500">
               <p className="text-xs text-gray-500 font-semibold uppercase">Total Refunds</p>
-              <p className="text-2xl font-bold text-blue-600">{stats.total || 0}</p>
+              <p className="text-2xl font-bold text-rose-500">{stats.total || 0}</p>
             </div>
             <div className="bg-white rounded-lg shadow p-4 border-l-4 border-yellow-500">
               <p className="text-xs text-gray-500 font-semibold uppercase">Pending</p>
@@ -146,7 +146,7 @@ const RefundList = () => {
               onClick={() => { setStatusFilter(s); }}
               className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition ${
                 statusFilter === s
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-rose-500 text-white'
                   : 'bg-white text-gray-600 border border-gray-300 hover:bg-gray-50'
               }`}
             >
@@ -158,7 +158,7 @@ const RefundList = () => {
         {/* Table */}
         {loading && refunds.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-12">
-            <div className="animate-spin border-4 border-blue-200 border-t-blue-600 rounded-full h-12 w-12 mb-4"></div>
+            <div className="animate-spin border-4 border-rose-200 border-t-rose-500 rounded-full h-12 w-12 mb-4"></div>
             <p className="text-gray-600">Loading refunds...</p>
           </div>
         ) : refunds.length === 0 ? (
@@ -182,7 +182,7 @@ const RefundList = () => {
                 {refunds.map((refund) => (
                   <tr key={refund._id} className="border-t hover:bg-gray-50">
                     <td className="px-4 py-3">
-                      <p className="font-semibold text-blue-600">{refund.orderNumber || '#' + refund.orderId?._id?.slice(-6)}</p>
+                      <p className="font-semibold text-rose-500">{refund.orderNumber || '#' + refund.orderId?._id?.slice(-6)}</p>
                     </td>
                     <td className="px-4 py-3 hidden md:table-cell font-semibold text-green-600">₹{refund.amount || 0}</td>
                     <td className="px-4 py-3 hidden sm:table-cell max-w-[200px]">
@@ -204,7 +204,7 @@ const RefundList = () => {
                         <div className="flex justify-end gap-1">
                           <button
                             onClick={() => processRefund(refund._id, 'APPROVED')}
-                            className="px-2 py-1 text-xs text-blue-600 border border-blue-300 rounded hover:bg-blue-50 transition"
+                            className="px-2 py-1 text-xs text-rose-500 border border-rose-300 rounded hover:bg-rose-50 transition"
                           >
                             Approve
                           </button>

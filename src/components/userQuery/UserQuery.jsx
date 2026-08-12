@@ -201,7 +201,7 @@ const UserQuery = () => {
     const statusColors = {
         pending: 'bg-yellow-100 text-yellow-700',
         resolved: 'bg-green-100 text-green-700',
-        in_progress: 'bg-blue-100 text-blue-700',
+        in_progress: 'bg-rose-100 text-rose-600',
         closed: 'bg-gray-100 text-gray-700'
     }
 
@@ -215,7 +215,7 @@ const UserQuery = () => {
                     <button
                         onClick={fetchUserAllQueries}
                         disabled={loading}
-                        className="w-full sm:w-auto px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white rounded-lg font-semibold transition"
+                        className="w-full sm:w-auto px-4 py-2 bg-rose-500 hover:bg-rose-600 disabled:opacity-50 text-white rounded-lg font-semibold transition"
                     >
                         {loading ? 'Loading...' : '🔄 Refresh Queries'}
                     </button>
@@ -224,17 +224,17 @@ const UserQuery = () => {
                 {/* Statistics Cards */}
                 {stats && (
                     <div className="grid grid-cols-2 md:grid-cols-5 gap-3 mb-6">
-                        <div className="bg-white rounded-lg shadow p-4 border-l-4 border-blue-500">
+                        <div className="bg-white rounded-lg shadow p-4 border-l-4 border-rose-500">
                             <p className="text-xs text-gray-600 font-semibold">Total</p>
-                            <p className="text-2xl font-bold text-blue-600">{stats.totalQueries || stats.total || queries.length}</p>
+                            <p className="text-2xl font-bold text-rose-500">{stats.totalQueries || stats.total || queries.length}</p>
                         </div>
                         <div className="bg-white rounded-lg shadow p-4 border-l-4 border-yellow-500">
                             <p className="text-xs text-gray-600 font-semibold">Pending</p>
                             <p className="text-2xl font-bold text-yellow-600">{stats.pending || 0}</p>
                         </div>
-                        <div className="bg-white rounded-lg shadow p-4 border-l-4 border-blue-500">
+                        <div className="bg-white rounded-lg shadow p-4 border-l-4 border-rose-500">
                             <p className="text-xs text-gray-600 font-semibold">In Progress</p>
-                            <p className="text-2xl font-bold text-blue-600">{stats.in_progress || 0}</p>
+                            <p className="text-2xl font-bold text-rose-500">{stats.in_progress || 0}</p>
                         </div>
                         <div className="bg-white rounded-lg shadow p-4 border-l-4 border-green-500">
                             <p className="text-xs text-gray-600 font-semibold">Resolved</p>
@@ -257,7 +257,7 @@ const UserQuery = () => {
                             placeholder="Search by name, email, or message..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
                         />
                     </div>
 
@@ -267,7 +267,7 @@ const UserQuery = () => {
                         <select
                             value={filterStatus}
                             onChange={(e) => setFilterStatus(e.target.value)}
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
                         >
                             <option value="all">All Queries</option>
                             <option value="pending">Pending</option>
@@ -303,7 +303,7 @@ const UserQuery = () => {
                 {/* Loading State */}
                 {loading && (
                     <div className="flex flex-col items-center justify-center py-12">
-                        <div className="animate-spin border-4 border-blue-200 border-t-blue-600 rounded-full h-12 w-12 mb-4"></div>
+                        <div className="animate-spin border-4 border-rose-200 border-t-rose-500 rounded-full h-12 w-12 mb-4"></div>
                         <p className="text-gray-600 text-center">Loading queries...</p>
                     </div>
                 )}
@@ -374,7 +374,7 @@ const UserQuery = () => {
                                 {/* Action Buttons */}
                                 <div className="flex flex-col gap-2 sm:flex-row">
                                     <button
-                                        className="flex-1 text-xs md:text-sm px-3 py-2 text-blue-600 hover:text-white hover:bg-blue-600 rounded transition border border-blue-600"
+                                        className="flex-1 text-xs md:text-sm px-3 py-2 text-rose-500 hover:text-white hover:bg-rose-500 rounded transition border border-rose-500"
                                         onClick={() => {
                                             debugInfo('UserQuery', 'Opening Query Details', { queryId: query._id })
                                             setSelectedQuery(query)
@@ -430,7 +430,7 @@ const UserQuery = () => {
                         <div className="bg-white rounded-lg shadow-2xl max-w-2xl w-full my-8">
                             
                             {/* Modal Header */}
-                            <div className="bg-blue-600 text-white p-6 rounded-t-lg flex justify-between items-center">
+                            <div className="bg-rose-500 text-white p-6 rounded-t-lg flex justify-between items-center">
                                 <h2 className="text-xl md:text-2xl font-bold">Query Details</h2>
                                 <button
                                     onClick={() => setSelectedQuery(null)}
@@ -447,7 +447,7 @@ const UserQuery = () => {
                                 <div className="grid grid-cols-2 gap-4">
                                     <div>
                                         <p className="text-gray-600 text-sm">Name</p>
-                                        <p className="text-lg font-bold text-blue-600">{selectedQuery.name || 'Anonymous'}</p>
+                                        <p className="text-lg font-bold text-rose-500">{selectedQuery.name || 'Anonymous'}</p>
                                     </div>
                                     <div>
                                         <p className="text-gray-600 text-sm">Date</p>

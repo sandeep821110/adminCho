@@ -446,7 +446,7 @@ const Product = () => {
                             setError('')
                             fetchProducts()
                         }}
-                        className="w-full sm:w-auto px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition"
+                        className="w-full sm:w-auto px-4 py-2 bg-rose-500 hover:bg-rose-600 text-white rounded-lg font-semibold transition"
                     >
                         Refresh
                     </button>
@@ -498,7 +498,7 @@ const Product = () => {
                                     placeholder="e.g., PROD001"
                                     value={formData.productCode}
                                     onChange={(e) => setFormData({ ...formData, productCode: e.target.value })}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
                                     disabled={loading}
                                     required
                                 />
@@ -510,7 +510,7 @@ const Product = () => {
                                     placeholder="Product name"
                                     value={formData.name}
                                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
                                     disabled={loading}
                                     required
                                 />
@@ -533,7 +533,7 @@ const Product = () => {
                                             setCalculatedPrice(Math.round(p - (p * d) / 100));
                                         }
                                     }}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
                                     disabled={loading}
                                     step="0.01"
                                     required
@@ -544,7 +544,7 @@ const Product = () => {
                                 <select
                                     value={formData.rating}
                                     onChange={(e) => setFormData({ ...formData, rating: parseInt(e.target.value) })}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
                                     disabled={loading}
                                 >
                                     <option value={1}>1 Star</option>
@@ -569,7 +569,7 @@ const Product = () => {
                                             setCalculatedPrice(Math.round(discounted));
                                         }
                                     }}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
                                     disabled={loading}
                                     min="0"
                                     max="100"
@@ -592,7 +592,7 @@ const Product = () => {
                                     placeholder="e.g., Electronics"
                                     value={formData.category}
                                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
                                     disabled={loading}
                                     required
                                 />
@@ -604,7 +604,7 @@ const Product = () => {
                                     placeholder="e.g., Laptops"
                                     value={formData.subCategory}
                                     onChange={(e) => setFormData({ ...formData, subCategory: e.target.value })}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
                                     disabled={loading}
                                 />
                             </div>
@@ -615,7 +615,7 @@ const Product = () => {
                                     placeholder="e.g., Dell"
                                     value={formData.brand}
                                     onChange={(e) => setFormData({ ...formData, brand: e.target.value })}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
                                     disabled={loading}
                                 />
                             </div>
@@ -628,7 +628,7 @@ const Product = () => {
                                 placeholder="Product description"
                                 value={formData.description}
                                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
                                 disabled={loading}
                                 rows="4"
                             />
@@ -712,7 +712,7 @@ const Product = () => {
                                         setFormData({ ...formData, images: [...formData.images, ...newFiles] })
                                     }
                                 }}
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
                                 disabled={loading}
                             />
                             <p className="text-sm text-gray-500 mt-1">
@@ -740,7 +740,7 @@ const Product = () => {
                                             newSQ[index].size = e.target.value
                                             setFormData({ ...formData, sizeQuantity: newSQ })
                                         }}
-                                        className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
                                         disabled={loading}
                                     />
                                     <input
@@ -752,7 +752,7 @@ const Product = () => {
                                             newSQ[index].quantity = parseInt(e.target.value)
                                             setFormData({ ...formData, sizeQuantity: newSQ })
                                         }}
-                                        className="w-24 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="w-24 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
                                         disabled={loading}
                                     />
                                     <button
@@ -771,7 +771,7 @@ const Product = () => {
                             <button
                                 type="button"
                                 onClick={() => setFormData({ ...formData, sizeQuantity: [...formData.sizeQuantity, { size: '', quantity: '' }] })}
-                                className="mt-2 px-3 py-1 text-sm bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition disabled:opacity-50"
+                                className="mt-2 px-3 py-1 text-sm bg-rose-500 hover:bg-rose-500 text-white rounded-lg transition disabled:opacity-50"
                                 disabled={loading}
                             >
                                 + Add Size
@@ -789,7 +789,7 @@ const Product = () => {
                                 placeholder="e.g., 110001, 400001, 560001"
                                 value={formData.pincodes}
                                 onChange={(e) => setFormData({ ...formData, pincodes: e.target.value })}
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
                                 disabled={loading}
                             />
                             <p className="text-xs text-gray-500 mt-1">
@@ -822,7 +822,7 @@ const Product = () => {
                       value={searchQuery}
                       onChange={(e) => handleSearchChange(e.target.value)}
                       placeholder="Search products by name..."
-                      className="w-full pl-9 pr-8 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full pl-9 pr-8 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-rose-500"
                     />
                     {searchLoading && (
                       <Loader2 className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 animate-spin" />
@@ -872,7 +872,7 @@ const Product = () => {
                                       <div className="flex flex-col sm:flex-row gap-2">
                                         <button
                                           onClick={() => fetchProductById(product._id)}
-                                          className="text-xs md:text-sm px-3 py-1 text-blue-600 hover:bg-blue-50 border border-blue-300 rounded transition"
+                                          className="text-xs md:text-sm px-3 py-1 text-rose-500 hover:bg-rose-50 border border-rose-300 rounded transition"
                                         >
                                           View
                                         </button>

@@ -37,10 +37,11 @@ const Navbar = () => {
 
   const sidebarContent = (
     <div className="flex flex-col h-full">
-      <div className="flex items-center justify-between px-5 h-16 shrink-0 border-b border-blue-700">
+      <div className="shrink-0 bg-gradient-to-r from-rose-500 via-pink-700 to-pink-600 h-1" />
+      <div className="flex items-center justify-between px-5 h-16 shrink-0 border-b border-white/10">
         <Link to="/" className="flex items-center gap-2">
           <span className="text-2xl">📊</span>
-          <span className="text-xl font-bold text-white">Admin Hub</span>
+          <span className="text-xl font-bold text-white">Admin <span className="gradient-text-animated">Hub</span></span>
         </Link>
         <button onClick={() => setSidebarOpen(false)} className="lg:hidden text-white/70 hover:text-white">
           <svg className="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
@@ -56,10 +57,10 @@ const Navbar = () => {
             <Link
               key={item.path}
               to={item.path}
-              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition ${
+              className={`flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 ${
                 isActive(item.path)
-                  ? 'bg-blue-700 text-white'
-                  : 'text-blue-100 hover:bg-blue-700 hover:text-white'
+                  ? 'bg-gradient-to-r from-rose-500 to-pink-600 text-white shadow-md shadow-pink-500/30'
+                  : 'text-slate-400 hover:bg-white/5 hover:text-white'
               }`}
             >
               <span className="text-lg shrink-0">{item.icon}</span>
@@ -70,20 +71,20 @@ const Navbar = () => {
       </nav>
 
       {isAuthenticated && (
-        <div className="shrink-0 border-t border-blue-700 px-4 py-4">
+        <div className="shrink-0 border-t border-white/10 px-4 py-4">
           <div className="flex items-center gap-3 mb-3">
-            <div className="w-9 h-9 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold text-sm shrink-0">
+            <div className="w-9 h-9 rounded-full bg-gradient-to-br from-rose-500 to-pink-700 flex items-center justify-center text-white font-bold text-sm shrink-0 shadow-md shadow-pink-500/30">
               {(user?.name || user?.email || 'U').charAt(0).toUpperCase()}
             </div>
             <div className="min-w-0">
               <p className="text-sm font-semibold text-white truncate">{user?.name || user?.email || 'User'}</p>
-              <p className="text-xs text-blue-200 truncate">
+              <p className="text-xs text-slate-400 truncate">
                 {user?.role ? user.role.charAt(0).toUpperCase() + user.role.slice(1) : 'User'}
               </p>
             </div>
           </div>
           <button onClick={handleLogout}
-            className="w-full flex items-center gap-2 px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg text-sm font-medium transition"
+            className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-rose-50 text-rose-600 hover:bg-rose-100 rounded-lg text-sm font-medium transition"
           >
             <span>🚪</span> Logout
           </button>
@@ -95,8 +96,8 @@ const Navbar = () => {
   return (
     <>
       {/* Mobile header bar */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 h-14 bg-gradient-to-r from-blue-600 to-blue-800 z-40 flex items-center px-4 shadow-lg">
-        <button onClick={() => setSidebarOpen(true)} className="p-1.5 rounded-lg text-white hover:bg-blue-700 transition mr-3">
+      <div className="lg:hidden fixed top-0 left-0 right-0 h-14 bg-gradient-to-r from-rose-500 via-pink-600 to-pink-700 z-40 flex items-center px-4 shadow-lg">
+        <button onClick={() => setSidebarOpen(true)} className="p-1.5 rounded-lg text-white hover:bg-white/10 transition mr-3">
           <svg className="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -109,16 +110,16 @@ const Navbar = () => {
 
       {/* Mobile overlay */}
       {sidebarOpen && (
-        <div className="fixed inset-0 bg-black/50 z-40 lg:hidden" onClick={() => setSidebarOpen(false)} />
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 lg:hidden" onClick={() => setSidebarOpen(false)} />
       )}
 
       {/* Desktop sidebar */}
-      <aside className="hidden lg:flex lg:flex-col lg:fixed lg:inset-y-0 lg:w-64 bg-gradient-to-b from-blue-600 to-blue-800 z-30 shadow-xl">
+      <aside className="hidden lg:flex lg:flex-col lg:fixed lg:inset-y-0 lg:w-64 bg-slate-950 z-30 shadow-2xl shadow-slate-900/40">
         {sidebarContent}
       </aside>
 
       {/* Mobile sidebar drawer */}
-      <aside className={`lg:hidden fixed top-0 left-0 bottom-0 w-64 bg-gradient-to-b from-blue-600 to-blue-800 z-50 transform transition-transform duration-300 ease-in-out shadow-2xl ${
+      <aside className={`lg:hidden fixed top-0 left-0 bottom-0 w-64 bg-slate-950 z-50 transform transition-transform duration-300 ease-in-out shadow-2xl ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}>
         {sidebarContent}

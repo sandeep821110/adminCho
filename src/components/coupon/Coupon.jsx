@@ -105,7 +105,7 @@ const Coupon = () => {
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 md:mb-8">
           <h1 className="text-2xl md:text-3xl font-bold text-gray-800">Coupon Management</h1>
           <button onClick={() => { setError(''); setSuccess(''); fetchCoupons() }}
-            className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition">
+            className="px-4 py-2 bg-rose-500 hover:bg-rose-600 text-white rounded-lg font-semibold transition">
             Refresh
           </button>
         </div>
@@ -123,14 +123,14 @@ const Coupon = () => {
                 <input type="text" placeholder="e.g., SAVE20"
                   value={formData.code}
                   onChange={(e) => setFormData({...formData, code: e.target.value.toUpperCase()})}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 uppercase"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500 uppercase"
                   required />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Discount Type</label>
                 <select value={formData.discountType}
                   onChange={(e) => setFormData({...formData, discountType: e.target.value})}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500">
                   <option value="percentage">Percentage (%)</option>
                   <option value="fixed">Fixed (₹)</option>
                 </select>
@@ -140,7 +140,7 @@ const Coupon = () => {
                 <input type="number" placeholder={formData.discountType === 'percentage' ? '20' : '100'}
                   value={formData.discountValue}
                   onChange={(e) => setFormData({...formData, discountValue: e.target.value})}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500"
                   min="0" step="0.01" required />
               </div>
               <div>
@@ -148,7 +148,7 @@ const Coupon = () => {
                 <input type="number" placeholder="0"
                   value={formData.minOrderAmount}
                   onChange={(e) => setFormData({...formData, minOrderAmount: e.target.value})}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500"
                   min="0" />
               </div>
               <div>
@@ -156,7 +156,7 @@ const Coupon = () => {
                 <input type="number" placeholder="Unlimited"
                   value={formData.maxDiscount}
                   onChange={(e) => setFormData({...formData, maxDiscount: e.target.value})}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500"
                   min="0" />
               </div>
               <div>
@@ -164,7 +164,7 @@ const Coupon = () => {
                 <input type="number" placeholder="0 = unlimited"
                   value={formData.usageLimit}
                   onChange={(e) => setFormData({...formData, usageLimit: e.target.value})}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500"
                   min="0" />
               </div>
               <div>
@@ -172,14 +172,14 @@ const Coupon = () => {
                 <input type="date"
                   value={formData.expiresAt}
                   onChange={(e) => setFormData({...formData, expiresAt: e.target.value})}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" />
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
                 <input type="text" placeholder="e.g., Summer Sale"
                   value={formData.description}
                   onChange={(e) => setFormData({...formData, description: e.target.value})}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" />
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-rose-500" />
               </div>
             </div>
             <button type="submit" disabled={loading}

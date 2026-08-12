@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => {
     server: {
       proxy: {
         '/api/riders': {
-          target: 'http://localhost:4000',
+          target: 'http://localhost:7011',
           changeOrigin: true,
         },
         '/api/auth': {
@@ -22,7 +22,7 @@ export default defineConfig(({ mode }) => {
           changeOrigin: true,
         },
         '/api/products': {
-          target: env.VITE_PRODUCTS_URL || 'http://localhost:4001',
+          target: env.VITE_PRODUCTS_URL || 'http://localhost:5001',
           changeOrigin: true,
         },
         '/api/pincodes': {
@@ -34,7 +34,7 @@ export default defineConfig(({ mode }) => {
           changeOrigin: true,
         },
         '/api/queries': {
-          target: env.VITE_QUERIES_URL || 'http://localhost:9010',
+          target: env.VITE_QUERIES_URL || 'http://localhost:4001',
           changeOrigin: true,
         },
         '/api/admin': {

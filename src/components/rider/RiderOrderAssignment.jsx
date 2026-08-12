@@ -111,7 +111,7 @@ const RiderOrderAssignment = () => {
           <p className="text-sm text-gray-500 mt-1">Assign orders to riders and view current assignments</p>
         </div>
         <button onClick={fetchData} disabled={loading}
-          className="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 transition disabled:opacity-50"
+          className="px-4 py-2 bg-pink-600 text-white rounded-lg text-sm font-medium hover:bg-pink-700 transition disabled:opacity-50"
         >Refresh</button>
       </div>
 
@@ -122,7 +122,7 @@ const RiderOrderAssignment = () => {
       )}
 
       {loading ? (
-        <div className="flex justify-center py-12"><Loader2 className="animate-spin text-indigo-600" size={32} /></div>
+        <div className="flex justify-center py-12"><Loader2 className="animate-spin text-pink-600" size={32} /></div>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Left panel: Rider list */}
@@ -130,7 +130,7 @@ const RiderOrderAssignment = () => {
             <div className="p-3 border-b border-gray-100">
               <div className="relative">
                 <Search className="absolute left-3 top-2.5 text-gray-400" size={16} />
-                <input type="text" placeholder="Search riders..." className="w-full pl-9 pr-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 outline-none"
+                <input type="text" placeholder="Search riders..." className="w-full pl-9 pr-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-pink-500 outline-none"
                   value={search} onChange={(e) => setSearch(e.target.value)} />
               </div>
             </div>
@@ -143,10 +143,10 @@ const RiderOrderAssignment = () => {
                   {approvedRiders.map((rider) => (
                     <button key={rider._id} onClick={() => selectRider(rider)}
                       className={`w-full text-left px-3 py-3 hover:bg-gray-50 transition flex items-center gap-3 ${
-                        selectedRider?._id === rider._id ? 'bg-indigo-50 border-l-4 border-indigo-600' : ''
+                        selectedRider?._id === rider._id ? 'bg-pink-50 border-l-4 border-pink-600' : ''
                       }`}>
-                      <div className="w-9 h-9 rounded-full bg-indigo-100 flex items-center justify-center shrink-0">
-                        <Bike size={18} className="text-indigo-600" />
+                      <div className="w-9 h-9 rounded-full bg-pink-100 flex items-center justify-center shrink-0">
+                        <Bike size={18} className="text-pink-600" />
                       </div>
                       <div className="min-w-0">
                         <p className="text-sm font-medium text-gray-800 truncate">{rider.name}</p>
@@ -164,7 +164,7 @@ const RiderOrderAssignment = () => {
                   {otherRiders.map((rider) => (
                     <button key={rider._id} onClick={() => selectRider(rider)}
                       className={`w-full text-left px-3 py-3 hover:bg-gray-50 transition flex items-center gap-3 opacity-60 ${
-                        selectedRider?._id === rider._id ? 'bg-indigo-50 border-l-4 border-indigo-600' : ''
+                        selectedRider?._id === rider._id ? 'bg-pink-50 border-l-4 border-pink-600' : ''
                       }`}>
                       <div className="w-9 h-9 rounded-full bg-gray-100 flex items-center justify-center shrink-0">
                         <Bike size={18} className="text-gray-400" />
@@ -191,8 +191,8 @@ const RiderOrderAssignment = () => {
                 <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4">
                   <div className="flex items-start justify-between">
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 rounded-full bg-indigo-100 flex items-center justify-center">
-                        <User size={24} className="text-indigo-600" />
+                      <div className="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center">
+                        <User size={24} className="text-pink-600" />
                       </div>
                       <div>
                         <h2 className="text-lg font-bold text-gray-800">{selectedRider.name}</h2>
@@ -221,7 +221,7 @@ const RiderOrderAssignment = () => {
                     {selectedRider.currentLat && selectedRider.currentLng && (
                       <a href={`https://www.google.com/maps?q=${selectedRider.currentLat},${selectedRider.currentLng}`}
                         target="_blank" rel="noopener noreferrer"
-                        className="flex items-center gap-1 text-indigo-600 hover:underline">
+                        className="flex items-center gap-1 text-pink-600 hover:underline">
                         <MapPin size={14} /> View Location
                       </a>
                     )}
@@ -240,7 +240,7 @@ const RiderOrderAssignment = () => {
                     <div className="relative mb-3">
                       <Search className="absolute left-3 top-2.5 text-gray-400" size={16} />
                       <input type="text" placeholder="Search orders by ID, city, customer..." value={orderSearch} onChange={(e) => setOrderSearch(e.target.value)}
-                        className="w-full pl-9 pr-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 outline-none" />
+                        className="w-full pl-9 pr-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-pink-500 outline-none" />
                     </div>
                     <div className="space-y-2 max-h-48 overflow-y-auto">
                       {filteredUnassigned.map((order) => (
@@ -254,7 +254,7 @@ const RiderOrderAssignment = () => {
                             </p>
                           </div>
                           <button onClick={() => handleAssign(order._id)} disabled={assigning}
-                            className="px-3 py-1.5 bg-indigo-600 text-white rounded-lg text-xs font-medium hover:bg-indigo-700 transition disabled:opacity-50 flex items-center gap-1 shrink-0">
+                            className="px-3 py-1.5 bg-pink-600 text-white rounded-lg text-xs font-medium hover:bg-pink-700 transition disabled:opacity-50 flex items-center gap-1 shrink-0">
                             {assigning ? <Loader2 className="animate-spin" size={12} /> : null}
                             Assign
                           </button>
@@ -274,17 +274,17 @@ const RiderOrderAssignment = () => {
                       <div className="relative mb-3">
                         <Search className="absolute left-3 top-2.5 text-gray-400" size={16} />
                         <input type="text" placeholder="Search assigned orders..." value={orderSearch} onChange={(e) => setOrderSearch(e.target.value)}
-                          className="w-full pl-9 pr-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 outline-none" />
+                          className="w-full pl-9 pr-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-pink-500 outline-none" />
                       </div>
                     )}
                   {ordersLoading ? (
-                    <div className="flex justify-center py-6"><Loader2 className="animate-spin text-indigo-600" size={24} /></div>
+                    <div className="flex justify-center py-6"><Loader2 className="animate-spin text-pink-600" size={24} /></div>
                   ) : filteredRiderOrders.length === 0 ? (
                     <p className="text-center py-6 text-gray-400 text-sm">{orderSearch ? 'No orders match your search' : 'No orders assigned to this rider'}</p>
                   ) : (
                     <div className="space-y-2">
                       {filteredRiderOrders.map((order) => (
-                        <div key={order._id} className="border border-gray-200 rounded-lg p-3 hover:border-indigo-200 transition">
+                        <div key={order._id} className="border border-gray-200 rounded-lg p-3 hover:border-pink-200 transition">
                           <div className="flex items-start justify-between mb-2">
                             <div>
                               <p className="font-semibold text-gray-800 text-sm">
@@ -296,8 +296,8 @@ const RiderOrderAssignment = () => {
                             </div>
                             <span className={`px-2 py-0.5 rounded-full text-xs font-medium capitalize ${
                               order.riderStatus === 'delivered' ? 'bg-green-100 text-green-700' :
-                              order.riderStatus === 'assigned' ? 'bg-blue-100 text-blue-700' :
-                              order.riderStatus === 'picked_up' ? 'bg-purple-100 text-purple-700' :
+                              order.riderStatus === 'assigned' ? 'bg-rose-100 text-rose-600' :
+                              order.riderStatus === 'picked_up' ? 'bg-pink-100 text-pink-700' :
                               'bg-yellow-100 text-yellow-700'
                             }`}>
                               {order.riderStatus?.replace(/_/g, ' ') || 'assigned'}

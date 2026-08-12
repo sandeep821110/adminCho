@@ -137,7 +137,7 @@ const ProductRedux = () => {
                     <h1 className="text-2xl md:text-3xl font-bold text-gray-800">Product Management (Redux)</h1>
                     <button
                         onClick={() => dispatch(fetchProducts())}
-                        className="w-full sm:w-auto px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition"
+                        className="w-full sm:w-auto px-4 py-2 bg-rose-500 hover:bg-rose-600 text-white rounded-lg font-semibold transition"
                     >
                         Refresh
                     </button>
@@ -167,7 +167,7 @@ const ProductRedux = () => {
                                     placeholder="e.g., PROD001"
                                     value={formData.productCode}
                                     onChange={(e) => setFormData({ ...formData, productCode: e.target.value })}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
                                     disabled={isLoading}
                                     required
                                 />
@@ -179,7 +179,7 @@ const ProductRedux = () => {
                                     placeholder="Product name"
                                     value={formData.name}
                                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
                                     disabled={isLoading}
                                     required
                                 />
@@ -194,7 +194,7 @@ const ProductRedux = () => {
                                     placeholder="0.00"
                                     value={formData.price}
                                     onChange={(e) => setFormData({ ...formData, price: e.target.value })}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
                                     disabled={isLoading}
                                     step="0.01"
                                     required
@@ -207,7 +207,7 @@ const ProductRedux = () => {
                                     placeholder="e.g., Electronics"
                                     value={formData.category}
                                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
                                     disabled={isLoading}
                                     required
                                 />
@@ -217,7 +217,7 @@ const ProductRedux = () => {
                                 <select
                                     value={formData.rating}
                                     onChange={(e) => setFormData({ ...formData, rating: parseInt(e.target.value) })}
-                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
                                     disabled={isLoading}
                                 >
                                     <option value={1}>1 Star</option>

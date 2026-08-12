@@ -29,8 +29,8 @@ const DELIVERY_ATTEMPT_STATUS = ['successful', 'failed', 'rescheduled']
 
 const statusBadge = (s) => {
   const map = {
-    order_placed: 'bg-blue-100 text-blue-800', order_confirmed: 'bg-indigo-100 text-indigo-800',
-    processing: 'bg-yellow-100 text-yellow-800', packed: 'bg-purple-100 text-purple-800',
+    order_placed: 'bg-rose-100 text-rose-800', order_confirmed: 'bg-pink-100 text-pink-800',
+    processing: 'bg-yellow-100 text-yellow-800', packed: 'bg-pink-100 text-pink-800',
     shipped: 'bg-orange-100 text-orange-800', out_for_delivery: 'bg-pink-100 text-pink-800',
     delivered: 'bg-green-100 text-green-800', cancelled: 'bg-red-100 text-red-800',
     returned: 'bg-gray-100 text-gray-800',
@@ -209,7 +209,7 @@ const OrderTracking = () => {
           <h1 className="text-2xl md:text-3xl font-bold text-gray-800">Order Tracking</h1>
           <div className="flex gap-2">
             <button onClick={() => setShowCreateModal(true)} className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition">+ Create Tracking</button>
-            <button onClick={fetchTrackings} disabled={loading} className="px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white rounded-lg font-semibold transition">{loading ? 'Loading...' : 'Refresh'}</button>
+            <button onClick={fetchTrackings} disabled={loading} className="px-4 py-2 bg-rose-500 hover:bg-rose-600 disabled:opacity-50 text-white rounded-lg font-semibold transition">{loading ? 'Loading...' : 'Refresh'}</button>
           </div>
         </div>
 
@@ -242,7 +242,7 @@ const OrderTracking = () => {
         {/* Loading */}
         {loading && trackings.length === 0 && (
           <div className="flex flex-col items-center justify-center py-12">
-            <div className="animate-spin border-4 border-blue-200 border-t-blue-600 rounded-full h-12 w-12 mb-4"></div>
+            <div className="animate-spin border-4 border-rose-200 border-t-rose-500 rounded-full h-12 w-12 mb-4"></div>
             <p className="text-gray-600">Loading tracking data...</p>
           </div>
         )}
@@ -273,13 +273,13 @@ const OrderTracking = () => {
                   const snap = t.orderSnapshots?.[0]
                   return (
                     <tr key={t._id} className="border-t hover:bg-gray-50">
-                      <td className="px-4 py-3"><span className="font-mono font-semibold text-blue-600">{t.trackingNumber}</span></td>
+                      <td className="px-4 py-3"><span className="font-mono font-semibold text-rose-500">{t.trackingNumber}</span></td>
                       <td className="px-4 py-3 hidden md:table-cell"><span className="font-semibold">{snap?.orderNumber || 'N/A'}</span></td>
                       <td className="px-4 py-3 hidden sm:table-cell"><span>{snap?.user?.name || t.user?.name || 'N/A'}</span></td>
                       <td className="px-4 py-3"><span className={`px-2 py-1 text-xs font-semibold rounded ${statusBadge(t.status)}`}>{STATUS_LABELS[t.status] || t.status}</span></td>
                       <td className="px-4 py-3 hidden md:table-cell text-gray-500">{t.createdAt ? new Date(t.createdAt).toLocaleDateString() : 'N/A'}</td>
                       <td className="px-4 py-3 text-right">
-                        <button onClick={() => openDetails(t)} className="px-3 py-1 text-xs text-blue-600 border border-blue-300 rounded hover:bg-blue-50 transition mr-1">View</button>
+                        <button onClick={() => openDetails(t)} className="px-3 py-1 text-xs text-rose-500 border border-rose-300 rounded hover:bg-rose-50 transition mr-1">View</button>
                         <button onClick={() => deleteTracking(t.trackingNumber)} className="px-3 py-1 text-xs text-red-600 border border-red-300 rounded hover:bg-red-50 transition">Delete</button>
                       </td>
                     </tr>
@@ -296,7 +296,7 @@ const OrderTracking = () => {
             <div className="bg-white rounded-lg shadow-xl max-w-md w-full p-6">
               <h2 className="text-xl font-bold mb-4">Create Tracking</h2>
               <p className="text-sm text-gray-600 mb-4">Enter Order ID (24 hex chars) or Order Number (e.g. ORD...).</p>
-              <input type="text" value={createOrderInput} onChange={e => setCreateOrderInput(e.target.value)} placeholder="Order ID or Order Number" className="w-full px-4 py-2 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-blue-500" />
+              <input type="text" value={createOrderInput} onChange={e => setCreateOrderInput(e.target.value)} placeholder="Order ID or Order Number" className="w-full px-4 py-2 border border-gray-300 rounded mb-4 focus:outline-none focus:ring-2 focus:ring-rose-500" />
               <div className="flex gap-2 justify-end">
                 <button onClick={() => setShowCreateModal(false)} className="px-4 py-2 bg-gray-500 hover:bg-gray-600 text-white rounded font-semibold">Cancel</button>
                 <button onClick={createTracking} disabled={creating} className="px-4 py-2 bg-green-600 hover:bg-green-700 disabled:opacity-50 text-white rounded font-semibold">{creating ? 'Creating...' : 'Create'}</button>
@@ -309,10 +309,10 @@ const OrderTracking = () => {
         {selected && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 overflow-y-auto">
             <div className="bg-white rounded-lg shadow-2xl max-w-3xl w-full my-8">
-              <div className="bg-blue-600 text-white p-6 rounded-t-lg flex justify-between items-center">
+              <div className="bg-rose-500 text-white p-6 rounded-t-lg flex justify-between items-center">
                 <div>
                   <h2 className="text-2xl font-bold">Tracking Details</h2>
-                  <p className="text-blue-100 text-sm mt-1 font-mono">{selected.trackingNumber}</p>
+                  <p className="text-rose-100 text-sm mt-1 font-mono">{selected.trackingNumber}</p>
                 </div>
                 <button onClick={() => setSelected(null)} className="text-2xl hover:text-gray-200 transition">&times;</button>
               </div>
@@ -333,16 +333,16 @@ const OrderTracking = () => {
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <h3 className="font-semibold text-gray-700 mb-2">Update Status</h3>
                   <div className="flex gap-2 mb-2">
-                    <select value={newStatus} onChange={e => setNewStatus(e.target.value)} className="flex-1 px-3 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" disabled={updatingStatus}>
+                    <select value={newStatus} onChange={e => setNewStatus(e.target.value)} className="flex-1 px-3 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-rose-500" disabled={updatingStatus}>
                       <option value="">Select next status</option>
                       {nextAllowedStatuses(selected.status).map(s => (
                         <option key={s} value={s}>{STATUS_LABELS[s]}</option>
                       ))}
                     </select>
-                    <button onClick={updateStatus} disabled={!newStatus || updatingStatus} className="px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white rounded text-sm font-semibold">{updatingStatus ? '...' : 'Update'}</button>
+                    <button onClick={updateStatus} disabled={!newStatus || updatingStatus} className="px-4 py-2 bg-rose-500 hover:bg-rose-600 disabled:opacity-50 text-white rounded text-sm font-semibold">{updatingStatus ? '...' : 'Update'}</button>
                   </div>
-                  <input type="text" value={statusLocation} onChange={e => setStatusLocation(e.target.value)} placeholder="Location (optional)" className="w-full px-3 py-2 border border-gray-300 rounded text-sm mb-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-                  <textarea value={statusDescription} onChange={e => setStatusDescription(e.target.value)} placeholder="Description (optional)" className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" rows={2} />
+                  <input type="text" value={statusLocation} onChange={e => setStatusLocation(e.target.value)} placeholder="Location (optional)" className="w-full px-3 py-2 border border-gray-300 rounded text-sm mb-2 focus:outline-none focus:ring-2 focus:ring-rose-500" />
+                  <textarea value={statusDescription} onChange={e => setStatusDescription(e.target.value)} placeholder="Description (optional)" className="w-full px-3 py-2 border border-gray-300 rounded text-sm focus:outline-none focus:ring-2 focus:ring-rose-500" rows={2} />
                 </div>
 
                 {/* Status Timeline */}
@@ -353,7 +353,7 @@ const OrderTracking = () => {
                       {[...selected.trackingHistory].reverse().map((h, i) => (
                         <div key={i} className="flex gap-3">
                           <div className="flex flex-col items-center">
-                            <div className={`w-3 h-3 rounded-full ${i === 0 ? 'bg-blue-600' : 'bg-gray-300'} ring-2 ring-white`}></div>
+                            <div className={`w-3 h-3 rounded-full ${i === 0 ? 'bg-rose-500' : 'bg-gray-300'} ring-2 ring-white`}></div>
                             {i < selected.trackingHistory.length - 1 && <div className="w-0.5 h-full min-h-[2rem] bg-gray-200"></div>}
                           </div>
                           <div className={`pb-4 ${i === 0 ? '' : 'pt-1'}`}>
@@ -396,7 +396,7 @@ const OrderTracking = () => {
                         <p className="font-semibold">{selected.shippingAddressSnapshot.fullName}</p>
                         <p>{selected.shippingAddressSnapshot.addressLine1}{selected.shippingAddressSnapshot.addressLine2 ? `, ${selected.shippingAddressSnapshot.addressLine2}` : ''}</p>
                         <p>{[selected.shippingAddressSnapshot.city, selected.shippingAddressSnapshot.state, selected.shippingAddressSnapshot.postalCode].filter(Boolean).join(', ')}</p>
-                        <p className="text-blue-600 font-semibold">Phone: {selected.shippingAddressSnapshot.phoneNumber || 'N/A'}</p>
+                        <p className="text-rose-500 font-semibold">Phone: {selected.shippingAddressSnapshot.phoneNumber || 'N/A'}</p>
                       </div>
                     </div>
                   </>
@@ -446,7 +446,7 @@ const OrderTracking = () => {
                   </div>
                   <input type="date" value={detailsForm.estimatedDeliveryDate} onChange={e => setDetailsForm(p => ({ ...p, estimatedDeliveryDate: e.target.value }))} className="w-full px-3 py-2 border border-gray-300 rounded text-sm mb-2" />
                   <textarea value={detailsForm.deliveryInstructions} onChange={e => setDetailsForm(p => ({ ...p, deliveryInstructions: e.target.value }))} placeholder="Delivery instructions" className="w-full px-3 py-2 border border-gray-300 rounded text-sm mb-2" rows={2} />
-                  <button onClick={updateDetails} disabled={updatingDetails} className="px-4 py-2 bg-purple-600 hover:bg-purple-700 disabled:opacity-50 text-white rounded text-sm font-semibold">{updatingDetails ? 'Saving...' : 'Save Details'}</button>
+                  <button onClick={updateDetails} disabled={updatingDetails} className="px-4 py-2 bg-pink-600 hover:bg-pink-700 disabled:opacity-50 text-white rounded text-sm font-semibold">{updatingDetails ? 'Saving...' : 'Save Details'}</button>
                 </div>
 
                 {/* Items */}
@@ -459,7 +459,7 @@ const OrderTracking = () => {
                         {selected.orderSnapshots[0].orderProducts.products.map((p, i) => (
                           <div key={i} className="bg-gray-50 p-3 rounded-lg border flex justify-between items-center text-sm">
                             <div><p className="font-semibold">{p.name || 'Product'}</p><p className="text-gray-500">Qty: {p.qty}{p.variant ? ` | ${p.variant}` : ''}</p></div>
-                            <p className="font-bold text-blue-600">₹{p.price}</p>
+                            <p className="font-bold text-rose-500">₹{p.price}</p>
                           </div>
                         ))}
                       </div>

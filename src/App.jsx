@@ -38,7 +38,7 @@ function AppLayout() {
   }
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen page-bg">
       <Navbar />
       <div className="flex flex-col flex-1 lg:ml-64 pt-14 lg:pt-0">
         <main className="flex-1">

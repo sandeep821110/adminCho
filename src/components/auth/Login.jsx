@@ -139,34 +139,37 @@ const Login = () => {
     }
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-blue-100 to-green-100 px-4 py-8">
-            <div className="w-full max-w-md bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-gray-100">
-                <h2 className="text-2xl md:text-3xl font-extrabold mb-6 text-center text-blue-700">Admin Sign In</h2>
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-rose-500 via-pink-600 to-pink-700 px-4 py-8">
+            <div className="w-full max-w-md bg-white p-6 md:p-8 rounded-2xl shadow-2xl ring-1 ring-white/40">
+                <div className="mb-6 text-center">
+                    <div className="mx-auto mb-3 w-14 h-14 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-700 flex items-center justify-center text-2xl shadow-lg shadow-pink-500/30">📊</div>
+                    <h2 className="text-2xl md:text-3xl font-extrabold gradient-text">Admin Sign In</h2>
+                </div>
 
                 {tokenExpiredMessage && (
-                    <div className="text-sm text-orange-700 mb-4 bg-orange-50 border border-orange-200 rounded p-3 text-center font-medium">
+                    <div className="text-sm text-amber-700 mb-4 bg-amber-50 border border-amber-200 rounded-xl p-3 text-center font-medium">
                         {tokenExpiredMessage}
                     </div>
                 )}
 
-                {error && <div className="text-sm text-red-700 mb-4 bg-red-50 border border-red-200 rounded p-3 text-center">{error}</div>}
+                {error && <div className="text-sm text-rose-700 mb-4 bg-rose-50 border border-rose-200 rounded-xl p-3 text-center">{error}</div>}
 
                 {devOtp && (
-                    <div className="text-sm text-green-700 mb-4 bg-green-50 border border-green-200 rounded p-3 text-center font-mono font-bold text-lg tracking-widest">
+                    <div className="text-sm text-emerald-700 mb-4 bg-emerald-50 border border-emerald-200 rounded-xl p-3 text-center font-mono font-bold text-lg tracking-widest">
                         Dev OTP: {devOtp}
                     </div>
                 )}
 
                 {!showOtpBox ? (
                     <>
-                        <label className="block mb-2 text-sm font-medium text-gray-700">Email</label>
-                        <input type="email" value={email} onChange={e => setEmail(e.target.value)} required placeholder="Enter your admin email" className="w-full p-3 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:ring-2 focus:ring-blue-200 transition text-sm md:text-base" />
-                        <button onClick={sendOtp} className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 md:py-3 rounded-lg font-semibold transition text-sm md:text-base">Send OTP</button>
-                        <p className="text-xs text-gray-500 mt-4 text-center">First time? Use <code className="bg-gray-100 px-1 rounded">POST /api/auth/setup-admin</code> to create admin</p>
+                        <label className="label">Email</label>
+                        <input type="email" value={email} onChange={e => setEmail(e.target.value)} required placeholder="Enter your admin email" className="input mb-4" />
+                        <button onClick={sendOtp} className="w-full btn-gradient py-3">Send OTP</button>
+                        <p className="text-xs text-slate-500 mt-4 text-center">First time? Use <code className="bg-slate-100 px-1.5 py-0.5 rounded text-rose-500">POST /api/auth/setup-admin</code> to create admin</p>
                     </>
                 ) : (
                     <>
-                        <p className="text-sm text-gray-600 mb-4 text-center">Enter OTP sent to <strong>{email}</strong></p>
+                        <p className="text-sm text-slate-600 mb-4 text-center">Enter OTP sent to <strong>{email}</strong></p>
                         <div className="flex justify-between mt-4 mb-6 gap-1 md:gap-2">
                             {otp.map((digit, index) => (
                                 <input
@@ -178,13 +181,13 @@ const Login = () => {
                                     onChange={e => handleChange(e.target.value, index)}
                                     onKeyDown={e => handleKeyDown(e, index)}
                                     onPaste={handlePaste}
-                                    className="w-10 h-10 md:w-12 md:h-12 border border-gray-300 text-center text-base md:text-lg rounded-lg focus:ring-2 focus:ring-green-300 transition shadow-sm"
+                                    className="w-10 h-10 md:w-12 md:h-12 border-2 border-slate-200 text-center text-base md:text-lg rounded-xl focus:ring-2 focus:ring-pink-500/40 focus:border-pink-500 transition shadow-sm focus:outline-none"
                                     autoFocus={index === 0}
                                 />
                             ))}
                         </div>
-                        <button onClick={verifyOtp} disabled={loading} className="w-full bg-green-600 hover:bg-green-700 text-white py-2 md:py-3 rounded-lg font-semibold mb-2 transition text-sm md:text-base disabled:opacity-50">{loading ? 'Verifying...' : 'Verify OTP'}</button>
-                        <button onClick={resendOtp} className="w-full text-blue-600 text-xs md:text-sm underline hover:text-blue-800 font-semibold">Resend OTP</button>
+                        <button onClick={verifyOtp} disabled={loading} className="w-full btn-gradient py-3 mb-2">{loading ? 'Verifying...' : 'Verify OTP'}</button>
+                        <button onClick={resendOtp} className="w-full text-pink-600 text-xs md:text-sm underline hover:text-pink-800 font-semibold">Resend OTP</button>
                     </>
                 )}
             </div>

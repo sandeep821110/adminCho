@@ -80,10 +80,12 @@ const Pincode = () => {
                 headers: { Authorization: `Bearer ${token}` }
             })
             
-            debugAPIResponse('GET', endpoint, res.status, { count: res.data.length })
-            debugSuccess('Pincode', `Fetched ${res.data.length} Pincodes`, res.data)
-            
-            setPincodes(res.data)
+            const list = res.data?.data ?? res.data
+
+            debugAPIResponse('GET', endpoint, res.status, { count: list.length })
+            debugSuccess('Pincode', `Fetched ${list.length} Pincodes`, list)
+
+            setPincodes(list)
         } catch (err) {
             const errorMsg = err?.response?.data?.message || 'Failed to fetch pincodes'
             debugError('Pincode', 'Fetch Failed', err, { endpoint: '/api/pincodes' })
@@ -150,7 +152,7 @@ const Pincode = () => {
                             setError('')
                             fetchPincodes()
                         }}
-                        className="w-full sm:w-auto px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition"
+                        className="w-full sm:w-auto px-4 py-2 bg-rose-500 hover:bg-rose-600 text-white rounded-lg font-semibold transition"
                     >
                         Refresh
                     </button>
@@ -179,7 +181,7 @@ const Pincode = () => {
                                 placeholder="Enter pincode"
                                 value={pincode}
                                 onChange={(e) => setPincode(e.target.value)}
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base"
+                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500 text-sm md:text-base"
                                 disabled={loading}
                             />
                         </div>

@@ -465,33 +465,33 @@ const CarouselSlider = () => {
                 )}
 
                 {/* Debug Info Panel */}
-                <div className="mb-6 p-4 bg-blue-50 border border-blue-300 rounded-lg">
+                <div className="mb-6 p-4 bg-rose-50 border border-rose-300 rounded-lg">
                     <div className="flex items-center justify-between mb-2">
-                        <h3 className="text-sm font-bold text-blue-900">🔍 Debug Info</h3>
+                        <h3 className="text-sm font-bold text-rose-900">🔍 Debug Info</h3>
                         <button 
                             onClick={fetchCarouselData}
                             disabled={loading}
-                            className="text-xs px-2 py-1 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white rounded font-semibold"
+                            className="text-xs px-2 py-1 bg-rose-500 hover:bg-rose-600 disabled:bg-gray-400 text-white rounded font-semibold"
                         >
                             Refresh Data
                         </button>
                     </div>
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs">
-                        <div className="bg-white p-2 rounded border border-blue-200">
-                            <p className="text-blue-600 font-semibold">Status</p>
-                            <p className="text-blue-900">{loading ? '🔄 Loading...' : carouselData.length > 0 ? '✅ Loaded' : '⚠️ Empty'}</p>
+                        <div className="bg-white p-2 rounded border border-rose-200">
+                            <p className="text-rose-500 font-semibold">Status</p>
+                            <p className="text-rose-900">{loading ? '🔄 Loading...' : carouselData.length > 0 ? '✅ Loaded' : '⚠️ Empty'}</p>
                         </div>
-                        <div className="bg-white p-2 rounded border border-blue-200">
-                            <p className="text-blue-600 font-semibold">Items Count</p>
-                            <p className="text-blue-900">{carouselData.length}</p>
+                        <div className="bg-white p-2 rounded border border-rose-200">
+                            <p className="text-rose-500 font-semibold">Items Count</p>
+                            <p className="text-rose-900">{carouselData.length}</p>
                         </div>
-                        <div className="bg-white p-2 rounded border border-blue-200">
-                            <p className="text-blue-600 font-semibold">Token</p>
-                            <p className="text-blue-900 truncate" title={token}>{token ? '✅ Available' : '❌ Missing'}</p>
+                        <div className="bg-white p-2 rounded border border-rose-200">
+                            <p className="text-rose-500 font-semibold">Token</p>
+                            <p className="text-rose-900 truncate" title={token}>{token ? '✅ Available' : '❌ Missing'}</p>
                         </div>
-                        <div className="bg-white p-2 rounded border border-blue-200">
-                            <p className="text-blue-600 font-semibold">Error</p>
-                            <p className="text-blue-900">{error ? '❌ Yes' : '✅ No'}</p>
+                        <div className="bg-white p-2 rounded border border-rose-200">
+                            <p className="text-rose-500 font-semibold">Error</p>
+                            <p className="text-rose-900">{error ? '❌ Yes' : '✅ No'}</p>
                         </div>
                     </div>
                     {error && (
@@ -518,7 +518,7 @@ const CarouselSlider = () => {
                                         value={formData.title}
                                         onChange={handleFormChange}
                                         placeholder="Enter carousel title"
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
                                         disabled={loading}
                                     />
                                 </div>
@@ -530,7 +530,7 @@ const CarouselSlider = () => {
                                         accept="image/*"
                                         multiple
                                         onChange={handleImageChange}
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer"
+                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500 cursor-pointer"
                                         disabled={loading}
                                     />
                                     <p className="text-xs text-gray-500 mt-1">
@@ -564,7 +564,7 @@ const CarouselSlider = () => {
                                                         <span className="text-gray-400 text-xs">No image</span>
                                                     </div>
                                                     {preview.isNew && (
-                                                        <div className="absolute top-1 left-1 bg-blue-500 text-white text-xs px-2 py-1 rounded-full font-semibold">
+                                                        <div className="absolute top-1 left-1 bg-rose-500 text-white text-xs px-2 py-1 rounded-full font-semibold">
                                                             NEW
                                                         </div>
                                                     )}
@@ -591,7 +591,7 @@ const CarouselSlider = () => {
                                         value={formData.link}
                                         onChange={handleFormChange}
                                         placeholder="Enter carousel link"
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
                                         disabled={loading}
                                     />
                                 </div>
@@ -604,7 +604,7 @@ const CarouselSlider = () => {
                                         value={formData.position}
                                         onChange={handleFormChange}
                                         min="1"
-                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-500"
                                         disabled={loading}
                                     />
                                 </div>
@@ -615,7 +615,7 @@ const CarouselSlider = () => {
                                         name="isActive"
                                         checked={formData.isActive}
                                         onChange={handleFormChange}
-                                        className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-2 focus:ring-blue-500"
+                                        className="w-4 h-4 text-rose-500 border-gray-300 rounded focus:ring-2 focus:ring-rose-500"
                                         disabled={loading}
                                     />
                                     <label className="ml-2 text-sm font-semibold text-gray-700">Active</label>
@@ -625,7 +625,7 @@ const CarouselSlider = () => {
                                     <button
                                         type="submit"
                                         disabled={loading}
-                                        className="flex-1 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white font-bold py-2 px-4 rounded-lg transition duration-200"
+                                        className="flex-1 bg-rose-500 hover:bg-rose-600 disabled:bg-gray-400 text-white font-bold py-2 px-4 rounded-lg transition duration-200"
                                     >
                                         {loading ? 'Processing...' : editingCarouselId ? 'Update' : 'Create'}
                                     </button>
@@ -652,7 +652,7 @@ const CarouselSlider = () => {
                             {loading && !carouselData.length ? (
                                 <div className="flex items-center justify-center py-12">
                                     <div className="text-gray-500 text-center">
-                                        <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+                                        <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-rose-500"></div>
                                         <p className="mt-4">Loading carousel data...</p>
                                     </div>
                                 </div>
@@ -718,10 +718,10 @@ const CarouselSlider = () => {
                                                                 <span className={`px-3 py-1 rounded-full text-sm font-semibold transition-colors ${item.isActive === true ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`} title={`DB Value: ${item.isActive}`}>
                                                                     {item.isActive === true ? '🟢 Active' : '🔴 Inactive'}
                                                                 </span>
-                                                                <span className="text-sm bg-blue-100 text-blue-800 px-2 py-1 rounded-full" title={`Position from DB: ${item.position}`}>
+                                                                <span className="text-sm bg-rose-100 text-rose-800 px-2 py-1 rounded-full" title={`Position from DB: ${item.position}`}>
                                                                     📍 Position: {item.position}
                                                                 </span>
-                                                                <span className="text-sm bg-purple-100 text-purple-800 px-2 py-1 rounded-full">
+                                                                <span className="text-sm bg-pink-100 text-pink-800 px-2 py-1 rounded-full">
                                                                     🖼️ {images.length} Image{images.length !== 1 ? 's' : ''}
                                                                 </span>
                                                             </div>
@@ -732,7 +732,7 @@ const CarouselSlider = () => {
                                                     {item.link && (
                                                         <div className="mb-3 p-2 bg-gray-50 rounded-lg border border-gray-200">
                                                             <p className="text-xs text-gray-600 font-semibold">Link:</p>
-                                                            <p className="text-xs text-blue-600 truncate hover:text-clip" title={item.link}>{item.link}</p>
+                                                            <p className="text-xs text-rose-500 truncate hover:text-clip" title={item.link}>{item.link}</p>
                                                         </div>
                                                     )}
 
@@ -761,7 +761,7 @@ const CarouselSlider = () => {
                                                                     <div className="mt-1 space-y-1">
                                                                         {item.images.map((url, i) => (
                                                                             <div key={i} className="truncate text-yellow-700 border-b border-yellow-200 pb-1">
-                                                                                <strong>{i + 1}:</strong> <span className="font-mono text-xs text-blue-700 cursor-pointer hover:text-blue-900" title={url} onClick={() => {
+                                                                                <strong>{i + 1}:</strong> <span className="font-mono text-xs text-rose-600 cursor-pointer hover:text-rose-900" title={url} onClick={() => {
                                                                                     window.open(url, '_blank')
                                                                                 }}>
                                                                                     {url.slice(0, 50)}...
@@ -780,7 +780,7 @@ const CarouselSlider = () => {
                                                         <button
                                                             onClick={() => handleEdit(item)}
                                                             disabled={loading}
-                                                            className="flex-1 bg-blue-500 hover:bg-blue-600 disabled:bg-gray-400 text-white font-bold py-2 px-3 rounded-lg transition duration-200 text-sm"
+                                                            className="flex-1 bg-rose-500 hover:bg-rose-500 disabled:bg-gray-400 text-white font-bold py-2 px-3 rounded-lg transition duration-200 text-sm"
                                                         >
                                                             ✏️ Edit
                                                         </button>

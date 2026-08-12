@@ -83,7 +83,7 @@ const RiderManagement = () => {
             <input
               type="text"
               placeholder="Search riders..."
-              className="pl-9 pr-4 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-indigo-500 outline-none"
+              className="pl-9 pr-4 py-2 border rounded-lg text-sm focus:ring-2 focus:ring-pink-500 outline-none"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
@@ -111,7 +111,7 @@ const RiderManagement = () => {
 
       {loading ? (
         <div className="flex justify-center py-12">
-          <Loader2 className="animate-spin text-indigo-600" size={32} />
+          <Loader2 className="animate-spin text-pink-600" size={32} />
         </div>
       ) : filtered.length === 0 ? (
         <div className="text-center py-12 text-gray-500">No riders found</div>
@@ -157,7 +157,7 @@ const RiderManagement = () => {
                       <span title={`${rider.currentLat}, ${rider.currentLng}`}>
                         <a href={`https://www.google.com/maps?q=${rider.currentLat},${rider.currentLng}`}
                           target="_blank" rel="noopener noreferrer"
-                          className="text-indigo-600 hover:underline">
+                          className="text-pink-600 hover:underline">
                           View Map
                         </a>
                         <br />
